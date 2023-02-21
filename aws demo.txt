@@ -1,0 +1,407 @@
+Skillset : 80 hrs, Assignments & project : 75% GUI + 25% scripting 
+
+1) Basic Netwotking : 3 - 4 hrs
+2) AWS : AWS Solution Architect Associate Cirtificate : 30 - 35 hrs, 2 years
+3) Linux + Shellscripting : max 10 hrs
+4) DevOps : 10 /15 tools : 30 -35 hrs
+
+ 1 session = 60 min 
+ 2 session = 120 min
+  @9:00 - 10 pm
+=========================================================================================
+---> ServerRoom -------> Data Center ------> Availability Zone } Server Running Location
+
+--> What is a Server ?
+
+--> Server is a high capacity System : 24X7 Running, lot of information
+
+--> responses to the requested users.
+
+========================================================================================
+
+===> Why i need to go Cloud ?
+
+Onprimises Environment : Servers@office			Cloud: Servers@third party location
+
+1) Purchase the Server (2-3 weeks,Laks of ruppes)	1) Rent based Server : 1 - 3 yrs
+   
+2) Room for Server 					2) X
+
+3) Temp Controller Devices --AC Setup - 23c		3) X
+
+4) H/w & N/w Team -- 24X7				4) X 
+
+5) Authentication devices 				5) X
+
+6) Extensive powerbackup -- 24 hrs			6) X
+
+7) Spare parts 						7) X
+
+===================================================================================================
+Cloud Services : 
+===============
+
+1) IAAS : Infrastructure As  A Service : Hardware 
+
+2) PAAS : Platform As A Service : Hardware + Runtime
+
+3) SAAS : Software AS A Service :  Hardware + Runtime + Application
+
+AWS : IAAS + PAAS 
+==================================================================================================
+
+Cloud Vendors :
+
+Amazon --- AWS Cloud -- Amazon web Services
+
+--> AWS Free Tier Account : 12 months , CC/DC --master/visa--- 2 rs/$1,24 hrs for Activation 
+                            , 750 hrs free.
+
+			  Rs 200 --- max Rs 500 
+
+  Launch Service --- Use the Service --- Delete the Service
+
+-->Microsoft : Azure Account : 12 months , CC , $200 --- 1 month, subscription based service			  			     
+
+---> Google ---> GCP
+
+---> IBM ----> IBM Cloud
+
+===============================================================================================
+why AWS ?
+
+1) Market share : AWS - 38% , Azure- 18%, GCP - 6%,IBM - 4%
+
+2) Infrastructure : 96 Availability Zones , 30 Regions
+
+
+3) Billing : pay as you go
+
+Server ---- 15 hrs/day running ,09 hrs stopped : Billable hrs 15 hrs
+
+4) MNC ---> AWS
+
+	Security :
+	
+	Data Security : Laptop --- AWS Account------Encription,KMS---> Data center
+
+	Account Security : UserName + Password + MFA 
+
+	Service : SLA ---- 99.99% , 98%
+
+============================================================================================
+
+online account :  AWS Free Tier Account : youtube 
+
+ 
+Root User : owner of the account
+
+iam user  : employee of the company
+
+Regions : 30 launched Regions   AZs : 96
+
+1. NV(us-east-1)		6 AZs  (us-east-1a,us-east-1b,c,d,e,f)
+
+2 ohio(us-east-2)		3 AZs   (us-east-2a,b,c)
+
+3 NC (us-west-1)		3 Azs
+
+4.oregon (us-west-2)		4 Azs
+
+5.mumbai (ap-south-1)		3 Azs
+
+6.Hyderabad (ap-south-2)       3 Azs
+
+======================================================================================
+AWS : 
+
+Networking : 
+
+1) IP Address
+
+2) VPC -- virtual private cloud
+
+3) Subnets
+
+4) IGW InternetGateway -- NAT IGW --Network Address Translation-IGW
+
+5) Route Tables
+
+6) SG -- Security Group --- NACL -- Network Access Controle List
+
+----- VPC Setup 
+
+7) Keypairs 
+
+8) AMI
+
+9) EC2 
+
+---------practicle
+
+===========================================================================
+
+1) IP Address : identity of a resource
+
+i) IPv4 Address : 32 bit range : x.x.x.x : 0.0.0.0 ----- 255.255.255.255
+
+ii)IPv6 Address : 128 bit range : x:x:x::x : trillions of trillions ip s 
+
+In Connective prospective IPv6 is better than IPv4.
+
+A Resource ( os / vm / Instance/EC2)
+
+A Resource can occupie min 2 ips 
+
+ public IP : interaction with IGW
+
+ private IP : no interaction with IGW
+
+main ip is private .
+
+ if we restart a resource its public ip(1) changes and private ip(1+) remains same.
+ 
+ A Resource can have 
+ 
+ 1) public
+ 2) private
+ 3) Elastic IP : constant publicIP : manually
+
+Class-A : parity bit-0 : 0.0.0.0 -- 127.255.255.255 :16777216 ips
+
+00000000.00000000.00000000.00000000 -- 01111111.11111111.11111111.11111111
+
+Class-B : parity bit-10 : 128.0.0.0 -- 191.255.255.255 : 65536 ips
+
+
+10000000.00000000.00000000.00000000 -- 10111111.11111111.11111111.11111111
+
+Class-C : : parity bit-110 : 192.0.0.0 -- 223.255.255.255 : 256 ips
+
+11000000.00000000.00000000.00000000 -- 11011111.11111111.11111111.11111111
+
+
+================================================================================
+
+VPC : Virtual Private Cloud :  Large Network
+
+ 
+ 		x.x.x.x/x --- CIDR block --- Classless inter domain Routing
+
+		/x : --General Networking --- /8 to /30  -- every time it decresses
+
+		/x : --AWS Networking --- /16 to /28
+
+		use ip range cal
+
+Subnets : Slice of the large network
+
+ - subnets are derived from VPC
+
+ 		x.x.x.x/x --- CIDR block --- Classless inter domain network
+
+		/x : --General Networking --- /8 to /30  -- every time it decresses
+
+		/x : --AWS Networking --- /16 to /28
+
+ Note :  one region can hold 5 vpcs (1 default VPC + 4 custom VPC) : free tier Account
+         one VPC can hold upto 200 subnets
+
+   class A  VPC :  0.0.0.0 -- 127.255.255.255 : 10.50.0.0 /15 : 131072 ips
+
+   class B  VPC : 128.0.0.0 -- 191.255.255.255 : 138.160.0.0 /16 : 65526 ips
+
+   class C  VPC : 192.0.0.0 -- 223.255.255.255 : 220.168.0.0/24 : 256 ips
+
+   
+
+   my VPC : 10.50.0.0/16 --- 65536 ips     
+
+             subnet-1 : 10.50.1.0/20 : 4096 ips
+             subnet-2 : 10.50.2.0/24 : 256 ips
+             subnet-3 : 10.50.3.0/22:  1024 ips
+
+
+IGW : Internet Gateway :
+
+  --to provide internet Services to public subnets.
+  --it is Associated with VPC  in 1:1 ratio
+
+NAT-IGW  -- Network Access Translation
+
+  --to provide internet Services to private subnets
+
+RouteTable : decide whether subnet is public or private
+
+--by default route table is having 1 RT.(main routeable)
+--every route table is having subnet Association and routes.
+ 
+--public RT and private RT can be created.
+
+--SG : Security Group
+
+    --inbound rule : incomming rules
+    --outbound Rules : outgoing rules
+  @instance level
+
+--NACL : Network Access Controle List
+    --inbound rule : incomming rules
+    --outbound Rules : outgoing rules
+  @subnet Level
+
+========================================================
+As per Genaral Networking : 2 ips are reserved for each subnet.(min and max)
+
+As per AWS     Networking : 5 ips are reserved for each subnet.
+
+	VPC : 30.50.0.0/16	
+
+	1.for Nerwork Address -- 30.50.0.0
+	2.for DNS Server  ---- 30.50.0.1
+	3.for VPC Router  ---- 30.50.0.2
+	4.for future usage --- 30.50.0.3
+	5.for Nerwork broadcast Address --- 30.50.0.255
+====================================================================
+VPC Setup :
+
+VPC : 30.50.0.0/16  --- 65536 ips
+
+SNO	Subnets		Range				AvailIP	/TotalIP
+1	30.50.0.0/22	30.50.0.0 - 30.50.3.255		1019/1024
+2	30.50.4.0/22	30.50.4.0 - 30.50.7.255
+3	30.50.8.0/22	30.50.8.0 - 30.50.11.255
+4	30.50.12.0/22	30.50.12.0 - 30.50.15.255
+
+
+
+
+--IPv4 Address planner.
+
+1) Virtualization
+2) instance types
+3) instance sizes
+4) tenency options
+5) purchase options
+
+4)Tenency Options :
+
+1) shared
+2) dedicated
+3) dedicated host
+
+5)purchase options:
+
+1) On-demand : 0%  discount on billing
+
+2) Reserved Instances : 1-3 yrs :discount 40% - 60%
+
+3) spot instances : up to 90% discount
+
+1) keypairs : 
+
+-It is an identity of owner
+-keypairs are region specific.
+-try to include region name along with keypairs
+-up to 5000 keys we can maintain per region
+-AWS having 2 keypairs
+	
+	1)public : holded by AWS 
+	2)private : holded by owner
+
+keypairs file formats :
+
+1. ".pem" : Privacy Enhanced mail
+2. ".ppk" : Putty Private Key
+
+
+Download putty (putty,puttyGen)
+
+putty for login purpose
+puttyGen for convertion (.pem to .ppk)
+
+Login Tools :
+
+1) putty : requires .ppk file
+2) GitBash : requires .pem file
+3) MobaXterm : requires .pem file
+
+--> AWS never recovers your lost keypairs.
+
+
+AMI : Amazon Machine Image
+
+ISO ----> AMI
+
+windows Servers
+
+Linux Servers
+1)ubuntu
+2)RHEL
+3)AMAZON Linux
+4)SUSE Linux
+
+Mac Servers
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+ 
+
+		
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
