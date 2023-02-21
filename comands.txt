@@ -1,0 +1,11 @@
+#!/bin/bash
+sudo su
+cd 
+apt-get update -y 
+apt-get install apache2 -y
+cd /var/www/html
+mkdir e-com
+cd e-com
+mkdir orders 
+cd orders
+echo "<center><h2>welcom to orders home page</h2></center>">orders html
